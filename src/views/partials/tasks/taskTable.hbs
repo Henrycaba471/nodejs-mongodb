@@ -1,0 +1,29 @@
+<h2>Tareas Disponibles</h2>
+<table class="table table-bordered table-hover table-dark">
+    <thead>
+        <tr>
+            <th>N°</th>
+            <th>Titulo</th>
+            <th>Descriccion</th>
+            <th>Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each tasks}}
+        <tr>
+            <td>{{@index}}</td>
+            <td>{{title}}</td>
+            <td>{{description}}</td>
+            <td class="">
+                {{#if done}}
+                <a href="/done/{{_id}}" class="btn btn-success" title="Realizada">😊</a>
+                {{else}}
+                <a href="/done/{{_id}}" class="btn btn-dark" title="Sin realizar">😐</a>
+                {{/if}}
+                <a href="/edit/{{_id}}" class="btn btn-info" title="Editar">✍️</a>
+                <a href="/delete/{{_id}}" class="btn btn-danger" title="Eliminar">🗑️</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
